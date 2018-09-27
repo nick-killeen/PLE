@@ -1,0 +1,443 @@
+# Lewis Carroll
+
+1. Babies cannot manage crocodiles. 
+(1) Babies are illogical; 
+(2) Nobody is despised who can manage a crocodile; 
+(3) Illogical persons are despised. 
+
+
+2. Your presents to me are not made of tin. 
+(1) My saucepans are the only things I have that are made of tin; 
+(2) I find all your presents very useful; 
+(3) None of my saucepans are of the slightest use. 
+
+
+3. All my potatoes in this dish are old ones. 
+(1) No potatoes of mine, that are new, have been boiled; 
+(2) All my potatoes in this dish are fit to eat; 
+(3) No unboiled potatoes of mine are fit to eat. 
+
+
+4. My servants never say "shpoonj". 
+(1) There are no Jews in the kitchen; 
+(2) No Gentiles say 'shpoonj'; 
+(3) My servants are all in the kitchen. 
+
+
+5. My poultry are not officers. 
+(1) No ducks waltz; 
+(2) No officers ever decline to waltz; 
+(3) All my poultry are ducks. 
+
+
+6. None of your sons are fit to serve on a jury. 
+(1) Every one who is sane can do Logic; 
+(2) No lunatics are fit to serve on a jury; 
+(3) None of your sons can do Logic. 
+
+
+7. No pencils of mine are sugar-plums. 
+(1) There are no pencils of mine in this box; 
+(2) No sugar-plums of mine are cigars; 
+(3) The whole of my property, that is not in this box, consists of cigars. 
+
+
+8. Jenkins is inexperienced. 
+(1) No experienced person is incompetent; 
+(2) Jenkins is always blundering; 
+(3) No competent person is always blundering. 
+
+
+9. No comet has a curly tail. 
+(1) No terriers wander among the signs of the zodiac; 
+(2) Nothing, that does not wander among the signs of the zodiac, is a comet; 
+(3) Nothing but a terrier has a curly tail. 
+
+
+10. No hedge-hog takes in the Times. 
+(1) No one takes in the Times, unless he is well-educated; 
+(2) No hedge-hogs can read; 
+(3) Those who cannot read are not well-educated. 
+
+
+11. This dish is unwholesome. 
+(1) All puddings are nice; 
+(2) This dish is a pudding; 
+(3) No nice things are wholesome. 
+
+
+12. My gardener is very old. 
+(1) My gardener is well worth listening to on military subjects; 
+(2) No one can remember the battle of Waterloo, unless he is very old; 
+(3) Nobody is really worth listening to on military subjects, unless he can remember the battle of Waterloo. 
+
+
+13. All humming-birds are small. 
+(1) All humming birds are richly coloured; 
+(2) No large birds live on honey; 
+(3) Birds that do not live on honey are dull in colour. 
+
+
+14. No one with a hooked nose ever fails to make money. 
+(1) No Gentiles have hooked noses; 
+(2) A man who is a good hand at a bargain always makes money; 
+(3) No Jew is ever a bad hand at a bargain. 
+
+
+15. No gray ducks in this village wear lace collars. 
+(1) All ducks in this village that are branded "B", belong to Mrs. Bond; 
+(2) Ducks in this village never wear lace collars, unless they are branded "B"; 
+(3) Mrs. Bond has no gray ducks in this village. 
+
+
+16. No jug in this cupboard will hold water. 
+(1) All the old articles in this cupboard are cracked; 
+(2) No jug in this cupboard is new; 
+(3) Nothing in this cupboard, that is cracked, will hold water. 
+
+
+17. These apples were grown in the sun. 
+(1) All unripe fruit is unwholesome; 
+(2) All these apples are wholesome; 
+(3) No fruit, grown in the shade, is ripe. 
+
+
+18. Puppies, that will not lie still, never care to do Worsted-work. 
+(1) Puppies, that will not lie still, are always grateful for the loan of a skipping-rope; 
+(2) A lame puppy would not say "thank you" if you offered to lend it a skipping-rope; 
+(3) None but lame puppies ever care to do worsted-work. 
+
+
+19. No name in this list is unmelodious. 
+(1) No name in this list is unsuitable for the hero of a romance; 
+(2) Names beginning with a vowel are always melodious; 
+(3) No name is suitable for the hero of a romance, if it begins with a consonant. 
+
+
+20. No M.P. should ride in a donkey-race, unless he has perfect self-command. 
+(1) All members of the House of Commons have perfect self-command; 
+(2) No M.P., who wears a coronet, should ride in a donkey-race; 
+(3) All members of the House of Lords wear coronets. 
+
+
+21. No goods in this shop, that are still on sale, may be carried away. 
+(1) No goods in this shop, that have been bought and paid for, are still on sale; 
+(2) None of the goods may be carried away, unless labeled "sold"; 
+(3) None of the goods are labeled "sold" unless they have been bought and paid for. 
+
+
+22. No acrobatic feat, which involves turning a quadruple somersault, is ever attempted in a circus. 
+(1) No acrobatic feats, that are not announced in the bills of a circus, are ever attempted there; 
+(2) No acrobatic feat is possible, if it involves turning a quadruple somersault; 
+(3) No impossible acrobatic feat is ever announced in a circus bill. 
+
+
+23. Guinea-pigs never really appreciate Beethoven. 
+(1) Nobody, who really appreciates Beethoven, fails to keep silence while the Moonlight-Sonata is being played; 
+(2) Guinea-pigs are hopelessly ignorant of music; 
+(3) No one, who is hopelessly ignorant of music, ever keeps silence while the Moonlight-Sonata is being played. 
+
+
+24. No scentless flowers please me. 
+(1) Coloured flowers are always scented; 
+(2) I dislike flowers that are not grown in the open air; 
+(3) No flowers grown in the open air are colourless. 
+
+
+25. Showy talkers are not really well-informed. 
+(1) Showy talkers think too much of themselves; 
+(2) No really well-informed people are bad company; 
+(3) People who think too much of themselves are not good company. 
+
+
+26. None but red-haired boys learn Greek in this school. 
+(1) No boys under 12 are admitted to this school as boarders; 
+(2) All the industrious boys have red hair; 
+(3) None of the day-boys learn Greek; 
+(4) None but those under 12 are idle. 
+
+
+27. Wedding-cake always disagrees with me. 
+(1) The only articles of food, that my doctor allows me, are such as are not very rich; 
+(2) Nothing that agrees with me is unsuitable for supper; 
+(3) Wedding-cake is always very rich; 
+(4) My doctor allows me all articles of food that are suitable for supper. 
+
+
+28. Discussions, that go on while Tomkins is in the chair, endanger the peacefulness of our Debating-Club. 
+(1) No discussions in our Debating-Club are likely to rouse the British Lion, so long as they are checked when they become too noisy; 
+(2) Discussions, unwisely conducted, endanger the peacefulness of our Debating-Club; 
+(3) Discussions, that go on while Tomkins is in the Chair, are likely to rouse the British Lion; 
+(4) Discussions in our Debating-Club, when wisely conducted, are always checked when they become too noisy. 
+
+
+29. All gluttons, who are children of mine, are unhealthy.
+(1) All my sons are slim; 
+(2) No child of mine is healthy who takes no exercise; 
+(3) All gluttons, who are children of mine, are fat; 
+(4) No daughter of mine takes any exercise. 
+
+
+30. An egg of the Great Auk is not to be had for a song. 
+(1) Things sold in the street are of no great value; 
+(2) Nothing but rubbish can be had for a song; 
+(3) Eggs of the Great Auk are very valuable; 
+(4) It is only what is sold in the streets that is really rubbish. 
+
+
+31. No books sold here have gilt edges, unless they are priced at 5s. and upwards. 
+(1) No books sold here have gilt edges, except what are in the front shop; 
+(2) All the authorized editions have red labels; 
+(3) All the books with red labels are priced at 5s. and upwards; 
+(4) None but authorized editions are ever placed in the front shop. 
+
+
+32. When you cut your finger, you will find Tincture of Calendula useful. 
+(1) Remedies for bleeding, which fail to check it, are a mockery; 
+(2) Tincture of Calendula is not to be despised; 
+(3) Remedies, which will check the bleeding when you cut your finger, are useful; 
+(4) All mock remedies for bleeding are despicable. 
+
+
+33. I have never come across a mermaid at sea. 
+(1) None of the unnoticed things, met with at sea, are mermaids; e 
+(2) Things entered in the log, as met with at sea, are sure to be worth remembering; 
+(3) I have never met with anything worth remembering, when on a voyage; 
+(4) Things met with at sea, that are noticed, are sure to be recorded in the log. 
+
+
+34. All the romances in this library are well-written. 
+(1) The only books in this library, that I do not recommend for reading, are unhealthy in tone; 
+(2) The bound books are all well-written; 
+(3) All the romances are healthy in tone; 
+(4) I do not recommend you to read any of the unbound books. 
+
+
+35. No bird in this aviary lives on mince-pies. 
+(1) No birds, except ostriches, are 9 feet high; 
+(2) There are no birds in this aviary that belong to any one but me; 
+(3) No ostrich lives on mince-pies; 
+(4) I have no birds less than 9 feet high. 
+
+
+36. No plum-pudding, that has not been boiled in a cloth, can be distinguished from soup. 
+(1) A plum-pudding, that is not really solid, is mere porridge; 
+(2) Every plum-pudding, served at my table, has been boiled in a cloth; 
+(3) A plum-pudding that is mere porridge is indistinguishable from soup; 
+(4) No plum-puddings are really solid, except what are served at my table. 
+
+
+37. All your poems are uninteresting. 
+(1) No interesting poems are unpopular among people of real taste; 
+(2) No modern poetry is free from affectation; 
+(3) All your poems are on the subject of soap-bubbles; 
+(4) No affected poetry is popular among people of real taste; 
+(5) No ancient poem is on the subject of soap-bubbles. 
+
+
+38. None of my peaches have been grown in a hot-house. 
+(1) All the fruit at this Show, that fails to get a prize, is the property of the Committee; 
+(2) None of my peaches have got prizes; 
+(3) None of the fruit, sold off in the evening, is unripe; 
+(4) None of the ripe fruit has been grown in a hot-house; 
+(5) All fruit, that belongs to the Committee, is sold off in the evening. 
+
+
+39. No pawnbroker is dishonest. 
+(1) Promise-breakers are untrustworthy; 
+(2) Wine-drinkers are very communicative; 
+(3) A man who keeps his promises is honest; 
+(4) No teetotalers are pawnbrokers; 
+(5) One can always trust a very communicative person. 
+
+
+40. No kitten with green eyes will play with a gorilla. 
+(1) No kitten, that loves fish, is unteachable. 
+(2) No kitten without a tail will play with a gorilla; 
+(3) Kittens with whiskers always love fish; 
+(4) No teachable kitten has green eyes; 
+(5) No kittens have tails unless they have whiskers. 
+
+
+41. All my friends dine at the lower table. 
+(1) All the Eton men in this College play cricket; 
+(2) None but the Scholars dine at the higher table; 
+(3) None of the cricketers row; 
+(4) My friends in this College all come from Eton; 
+(5) All the Scholars are rowing-men. 
+
+
+42. My writing-desk is full of live scorpions. 
+(1) There is no box of mine here that I dare open; 
+(2) My writing-desk is made of rose-wood; 
+(3) All my boxes are painted, except what are here; 
+(4) There is no box of mine that I dare not open, unless it is full of live scorpions; 
+(5) All my rose-wood boxes are unpainted. 
+
+
+43. No Mandarin ever reads Hogg's poems.  
+(1) Gentiles have no objection to pork; 
+(2) Nobody who admires pigsties ever reads Hogg's poems; 
+(3) No Mandarin knows Hebrew; 
+(4) Every one, who does not object to pork, admires pigsties; 
+(5) No Jew is ignorant of Hebrew. 
+
+
+44. Shakespeare was clever. 
+(1) All writers, who understand human nature, are clever; 
+(2) No one is a true poet unless he can stir the hearts of men; 
+(3) Shakespeare wrote "Hamlet"; 
+(4) No writer, who does not understand human nature, can stir the hearts of men; 
+(5) None but a true poet could have written "Hamlet". 
+
+
+45. Rainbows are not worth writing odes to. 
+(1) I despise anything that cannot be used as a bridge; 
+(2) Everything, that is worth writing an ode to, would be a welcome gift to me; 
+(3) A rainbow will not bear the weight of a wheelbarrow; 
+(4) Whatever can be used as a bridge will bear the weight of a wheel-barrow; 
+(5) I would not take, as a gift, a thing that I despise. 
+
+
+46. These Sorites-examples are difficult. 
+(1) When I work a Logic-example without grumbling, you may be sure it is one that I can understand; 
+(2) These Sorites are not arranged in regular order, like the examples I am used to; 
+(3) No easy example ever makes my head ache; 
+(4) I can't understand examples that are not arranged in regular order, like those I am used to; 
+(5) I never grumble at an example, unless it gives me a headache. 
+
+
+47. All my dreams come true. 
+(1) Every idea of mine, that cannot be expressed as a Syllogism, is really ridiculous; 
+(2) None of my ideas about Bath-buns are worth writing down; 
+(3) No idea of mine, that fails to come true, can be expressed as a Syllogism; 
+(4) I never have any really ridiculous idea, that I do not at once refer to my solicitor; 
+(5) My dreams are all about Bath-buns; 
+(6) I never refer any idea of mine to my solicitor, unless it is worth writing down. 
+
+
+48. All the English pictures here are painted in oils. 
+(1) None of the pictures here, except the battle-pieces, are valuable; 
+(2) None of the unframed ones are varnished; 
+(3) All the battle-pieces are painted in oils; 
+(4) All those that have been sold are valuable; 
+(5) All the English ones are varnished; 
+(6) All those in frames have been sold. 
+
+
+49. Donkeys are not easy to swallow. 
+(1) Animals, that do not kick, are always unexcitable; 
+(2) Donkeys have no horns; 
+(3) A buffalo can always toss one over a gate; 
+(4) No animals that kick are easy to swallow; 
+(5) No hornless animal can toss one over a gate; 
+(6) All animals are excitable, except buffaloes. 
+
+
+50. Opium-eaters never wear white kid gloves. 
+(1) No one, who is going to a party, ever fails to brush his hair; 
+(2) No one looks fascinating, if he is untidy; 
+(3) Opium-eaters have no self-command; 
+(4) Every one, who has brushed his hair, looks fascinating; 
+(5) No one wears white kid gloves, unless he is going to a party; 
+(6) A man is always untidy, if he has no self-command. 
+
+
+51. A good husband always comes home for his tea. 
+(1) No husband, who is always giving his wife new dresses, can be a cross-grained man; 
+(2) A methodical husband always comes home for his tea; 
+(3) No one, who hangs up his hat on the gas-jet, can be a man that is kept in proper order by his wife; 
+(4) A good husband is always giving his wife new dresses; 
+(5) No husband can fail to be cross-grained, if his wife does not keep him in proper order; 
+(6) An unmethodical husband always hangs up his hat on the gas-jet. 
+
+
+52. Bathing-machines are never made of mother-of-pearl. 
+(1) Everything, not absolutely ugly, may be kept in a drawing-room; 
+(2) Nothing, that is encrusted with salt, is ever quite dry; 
+(3) Nothing should be kept in a drawing-room, unless it is free from damp; 
+(4) Bathing-machines are always kept near the sea; 
+(5) Nothing, that is made of mother-of-pearl, can be absolutely ugly; 
+(6) Whatever is kept near the sea gets encrusted with salt. 
+
+
+53. Rainy days are always cloudy. 
+(1) I call no day "unlucky", when Robinson is civil to me; 
+(2) Wednesdays are always cloudy; 
+(3) When people take umbrellas, the day never turns out fine; 
+(4) The only days when Robinson is uncivil to me are Wednesdays; 
+(5) Everybody takes his umbrella with him when it is raining; 
+(6) My "lucky" days always turn out fine. 
+
+
+54. No heavy fish is unkind to children. 
+(1) No shark ever doubts that it is well fitted out; 
+(2) A fish, that cannot dance a minuet, is contemptible; 
+(3) No fish is quite certain that it is well fitted out, unless it has three rows of teeth; 
+(4) All fishes, except sharks, are kind to children; 
+(5) No heavy fish can dance a minuet; 
+(6) A fish with three rows of teeth is not to be despised. 
+
+
+55. No engine-driver lives on barley-sugar. 
+(1) All the human race, except my footmen, have a certain amount of common sense; 
+(2) No one, who lives on barley-sugar, can be anything but a mere baby; 
+(3) None but a hop-scotch player knows what real happiness is; 
+(4) No mere baby has a grain of common sense; 
+(5) No engine-driver ever plays hop-scotch; 
+(6) No footman of mine is ignorant of what true happiness is. 
+
+
+56. All the animals in the yard gnaw bones. 
+(1) I trust every animal that belongs to me; 
+(2) Dogs gnaw bones; 
+(3) I admit no animals into my study, unless they will beg when told to do so; 
+(4) All the animals in the yard are mine; 
+(5) I admit every animal, that I trust, into my study; 
+(6) The only animals, that are really willing to beg when told to do so, are dogs. 
+
+
+57. No badger can guess a conundrum. 
+(1) Animals are always mortally offended if I fail of notice them; 
+(2) The only animals that belong to me are in that field; 
+(3) No animal can guess a conundrum, unless it has been properly trained in a Board-School; 
+(4) None of the animals in that field are badgers; 
+(5) When an animal is mortally offended, it always rushes about wildly and howls; 
+(6) I never notice any animal, unless it belongs to me; 
+(7) No animal, that has been properly trained in a Board-School, ever rushes about wildly and howls. 
+
+
+58. No cheque of yours, received by me, is payable to order. 
+(1) I never put a cheque, received by me, on that file, unless I am anxious about it; 
+(2) All the cheques received by me, that are not marked with a cross, are payable to bearer; 
+(3) None of them are ever brought back to me, unless they have been dishonoured at the Bank; 
+(4) All of them, that are marked with a cross, are for amounts of over £100; 
+(5) All of them, that are not on that file, are marked "not negotiable"; 
+(6) No cheque of yours, received by me, has ever been dishonoured; 
+(7) I am never anxious about a cheque, received by me, unless it should happen to be brought back to me; 
+(8) None of the cheques received by me, that are marked "not negotiable", are for amounts of over ?100. 
+
+
+59. I cannot read any of Brown's letters. 
+(1) All the dated letters in this room are written on blue paper; 
+(2) None of them are in black ink, except those that are written in the third person; 
+(3) I have not filed any of them that I can read; 
+(4) None of them, that are written on one sheet, are undated; 
+(5) All of them, that are not crossed, are in black ink; 
+(6) All of them, written by Brown, begin with "Dear Sir"; 
+(7) All of them, written on blue paper, are filed; 
+(8) None of them, written on more than one sheet, are crossed; 
+(9) None of them, that begin with "Dear Sir", are written in the third person. 
+
+
+60. I always avoid a kangaroo. 
+(1) The only animals in this house are cats; 
+(2) Every animal is suitable for a pet, that loves to gaze at the moon; 
+(3) When I detest an animal, I avoid it; 
+(4) No animals are carnivorous, unless they prowl at night; 
+(5) No cat fails to kill mice; 
+(6) No animals ever take to me, except what are in this house; 
+(7) Kangaroos are not suitable for pets; 
+(8) None but carnivora kill mice; 
+(9) I detest animals that do not take to me; 
+(10) Animals, that prowl at night, always love to gaze at the moon. 

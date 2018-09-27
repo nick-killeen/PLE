@@ -1,0 +1,1510 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="application-name" content="Propositional Logic Engine" 
+          />
+    <meta name="author" content="Nicholas Killeen" />
+    <meta name="date" content="31st July 2016" />
+    <meta name="release-version" content="1.0" />
+    <meta name="description" content="Program to perform algebraic 
+          manipulations on facts in order to reach a requested 
+          solution." />
+    <title>Propositional Logic Engine</title>
+    <style>
+        /* wildcards */
+        *[hiddenDiv="true"]
+        {
+            display: none;
+        }
+
+        /* tag rules */
+        body
+        {
+            background-color: #ECECEC;
+            font-family: sans-serif;
+            height: 100%;
+            margin: 0;
+            min-height: 500px;
+            min-width: 700px;
+            padding: 0;
+            width: 100%;
+        }
+        html
+        {
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            cursor: default;
+            height: 100%;
+            width: 100%;
+			 zoom: 1;
+        }
+
+        /* class rules */
+        .button
+        {
+            cursor: pointer;
+        }
+        .button:active
+        {
+            background-color: #F7F7F7;
+        }
+        .button:hover:not(:active)
+        {
+            background-color: #ECECEC;
+        }
+        .button.left
+        {
+            border-left: 1px solid #DADADA;
+            border-right: 1px solid #DADADA;
+            float: left;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+        .button.middle
+        {
+            border-right: 1px solid #DADADA;
+            float: left;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+        .button.right
+        {
+            float: left;
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+        .buttonHolder
+        {
+            float: right;
+        }
+        .constituent:hover
+        {
+            background-color: #F7F7F7;
+        }
+        .content
+        {
+            background-color: #FFF;
+            border: 1px solid #DADADA;
+            padding: 5px;
+        }
+        .contentComponent.upper
+        {
+            border-bottom: 1px solid #DADADA;
+            padding-bottom: 5px;
+        }
+        .contentComponent.middle
+        {
+            border-bottom: 1px solid #DADADA;
+            padding-bottom: 5px;
+            padding-top: 5px;
+        }
+        .contentComponent.lower
+        {
+            padding-top: 5px;
+        }
+        .description
+        {
+            height: 100px;
+            overflow-y: scroll; /* auto */
+        }
+        .determinateConstituent
+        {
+            padding: 5px;
+        }
+        .determinateConstituent:not(:last-child)
+        {
+            border-bottom: 1px solid #ECECEC;
+        }
+        .editable
+        {
+            word-wrap: break-word;
+        }
+        .editable[editable="true"]
+        {
+            -webkit-user-modify: read-write-plaintext-only;
+            -webkit-user-select: initial;
+            cursor: text;
+        }
+        .editable:focus
+        {
+            outline: none;
+        }
+        .fact
+        {
+            border-bottom: 1px solid #ECECEC;
+            padding: 5px;
+        }
+        .fact, .symbolName
+        {
+            -webkit-box-sizing: border-box;
+            -webkit-user-modify: read-write-plaintext-only;
+            -webkit-user-select: initial;
+            cursor: text;
+            width: 100%;
+            word-wrap: break-word;
+        }
+        .fact:hover, .symbol:hover
+        {
+            background-color: #F7F7F7;
+        }
+        .fact:focus, .symbolName:focus
+        {
+            outline: none;
+        }
+        .fact[selected="true"], .symbol[selected="true"], 
+            .constituent[selected="true"]
+        {
+            background-color: #ECECEC;
+        }
+        .fact[valid="true"]
+        {
+            border-right: 5px solid #008000;
+        }
+        .fact[valid="false"]
+        {
+            border-right: 5px solid #FF0000;
+        }
+        .fact[valid="maybe"]
+        {
+            border-right: 5px solid #FF8000;
+        }
+        .footSpan
+        {
+            margin-top: 10px;
+        }
+        .heading
+        {
+            text-align: center;
+        }
+        .infiniteConstituent
+        {
+        	padding: 5px;
+        }
+        .infiniteConstituent:not(:last-child)
+        {
+            border-bottom: 1px solid #ECECEC;
+        }
+        .involvedSymbol
+        {
+            border-bottom: 1px solid #ECECEC;
+            padding: 5px;
+        }
+        .involvedSymbolDefinition
+        {
+            overflow: hidden;
+            padding-left: 5px;
+            word-wrap: break-word;
+        }
+        .involvedSymbolNumber
+        {
+            border-right: 1px solid #ECECEC;
+            float: left;
+            padding-right: 5px;
+            word-wrap: break-word;
+        }
+        .list
+        {
+            padding-right: 5px;
+            height: 200px;
+            overflow-y: scroll;
+        }
+        .panelInner.left
+        {
+            margin-right: 5px;
+        }
+        .panelInner.offset
+        {
+            margin-top: 10px;
+        }
+        .panelInner.right
+        {
+            margin-left: 5px;
+        }
+        .panelOuter
+        {
+            float: left;
+            width: 50%;
+        }
+        .placeholder:empty:before
+        {
+            color: #808080;
+            content: attr(placeholder);
+        }
+        .placeholder:empty:focus:before
+        {
+            content: none;
+        }
+        .quantumConstituent
+        {
+            padding: 5px;
+        }
+        .quantumConstituent:not(:last-child)
+        {
+            border-bottom: 1px solid #ECECEC;
+        }
+        .symbol /* inherits some properties of .fact */
+        {
+            border-bottom: 1px solid #ECECEC;
+            padding: 5px;
+        }
+        .symbol[eliminated="true"]
+        {
+            border-right: 5px solid #A9C6E4;
+        }
+        .symbol[eliminated="false"]
+        {
+            border-right: 5px solid #0080FF;
+        }
+        .symbol[eliminated="true"] > *
+        {
+            color: #808080;
+        }
+        .symbolNumber
+        {
+            border-right: 1px solid #DADADA;
+            float: left;
+            padding-right: 5px;
+            word-wrap: break-word;
+        }
+        .symbolNumber:empty:after
+        {
+            color: #808080;
+        }
+        .symbolNumber:empty:before
+        {
+            color: #808080;
+            content: "[ ";
+        }
+        .symbolNumber:after
+        {
+            content: "]";
+        }
+        .symbolNumber:before
+        {
+            content: "[";
+        }
+        .symbolName /* inherits some properties of .fact */
+        {
+            overflow: hidden;
+            padding-left: 5px;
+            width: auto;
+        }
+
+        /* ID rules */
+        #determinateConstituentContainer
+        {
+            margin-top: 5px;
+            padding-top: 5px;
+        }
+        #footHolder
+        {
+            float: left;
+            padding-bottom: 10px;
+            width: 100%;
+        }
+        #outBox
+        {
+            -webkit-user-select: text;
+        }
+        #outBoxInf
+        {
+            -webkit-user-select: text;
+            margin-top: 10px;
+        }
+        #panelHolder
+        {
+            height: auto;
+        }
+        #quantumConstituentContainer
+        {
+            border-bottom: 1px solid #DADADA;
+            margin-top: 5px;
+        }
+        #quaesitumInsertionPoint
+        {
+            border-right: 1px solid #DADADA;
+            overflow-y: auto;
+            overflow-x: hidden;
+            width: auto;
+        }
+        #request
+        {
+            float: right;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+        #tortilla
+        {
+            padding: 10px;
+            width: auto;
+        }
+    </style>
+    <script name="front-end definitions" type="text/javascript">
+        function checkValidity(factNode)
+        {
+            while (factNode.innerText.search("\n") != -1)
+            {
+                factNode.innerText = factNode.innerText.replace("\n", "");
+            }
+            var constructor = factNode.innerText;
+            while (constructor.search("\n") != -1)
+            {
+                constructor = constructor.replace("\n", "");
+            }
+            // this loop appears redundant, but innerText is updated
+            // asynchronously, making it necessary
+
+            Python.isValid(constructor);
+            isValid = Python.register;
+            Python.register = undefined;
+            if (isValid == true)
+            {
+                factNode.setAttribute("valid", "true");
+            }
+            else if (isValid == false)
+            {
+                factNode.setAttribute("valid", "false");
+            }
+            else 
+            {
+                // there were too many symbols in the fact, so checking
+                // would take too long
+                factNode.setAttribute("valid", "maybe");
+            }
+        }
+
+        function deselectSelectedNodes()
+        {
+            // deselect the current constituent
+            var constituentNodes =
+                document.getElementsByClassName("constituent");
+            for (var constituent = 0; constituent <
+                constituentNodes.length; ++constituent)
+            {
+                if (constituentNodes[constituent].getAttribute(
+                    "selected") == "true")
+                {
+                    constituentNodes[constituent].setAttribute(
+                        "selected", "false");
+                }
+            }
+            // deselect current fact
+            var factNodes = document.getElementsByClassName("fact");
+            for (var fact = 0; fact < factNodes.length; ++fact)
+            {
+                if (factNodes[fact].getAttribute("selected") == "true")
+                {
+                    factNodes[fact].setAttribute("selected", "false");
+                }
+            }
+            document.getElementById("symbolMap").innerHTML = "";
+            document.getElementById("factDescription").innerText = "";
+            document.getElementById("factDescription").setAttribute(
+                "editable", "false");
+            document.getElementById("factDescription").setAttribute(
+                "placeholder", "");
+        }
+
+        function getElimiatedSymbols()
+        {
+            var eliminatedSymbols = [];
+            var symbols = document.getElementsByClassName("symbol");
+            for (var symbolNumber = 0; symbolNumber < symbols.length;
+                ++symbolNumber)
+            {
+                var currentSymbolNode = symbols[symbolNumber]
+                if (currentSymbolNode.getAttribute("eliminated") ==
+                    "true")
+                {
+                    var currentSymbolNumber =
+                        currentSymbolNode.children[0].innerText;
+                    if (currentSymbolNumber != "")
+                    {
+                        eliminatedSymbols[eliminatedSymbols.length] = 
+                            parseInt(currentSymbolNumber);
+                    }
+                }
+            }
+            return eliminatedSymbols;
+        }
+
+        // Stop any illegal values from remaining as a symbol number
+        // after events that could potentially change the value.
+        function formatSymbolNumber(event)
+        {
+            if (event.target.classList.contains("symbolNumber"))
+            {
+                var oldRange = getSelection().getRangeAt(0);
+                var oldInnerText = event.target.innerText;
+                if (oldInnerText.length > 3)
+                {
+                    event.target.innerText = oldInnerText.slice(0, 3);
+                }
+
+                var innerText = oldInnerText;
+                var newInnerText = "";
+                while (innerText.search(/[0-9]/) != -1)
+                {
+                    newInnerText += innerText[innerText.search(
+                        /[0-9]/)];
+                    innerText = innerText.replace(/[0-9]/, "");
+                }
+                if (oldInnerText.length > 1 && oldInnerText[0] == '0')
+                {
+                    var innerText = newInnerText;
+                    while (innerText.length > 1 && innerText[0] == '0')
+                    {
+                        innerText = innerText.slice(1);
+                    }
+                    event.target.innerText = innerText;
+                }
+                else if (oldInnerText != newInnerText)
+                {
+                    event.target.innerText = newInnerText;
+                }
+
+                // refocus the caret
+                var selectionObject = getSelection();
+                selectionObject.removeAllRanges();
+                selectionObject.addRange(oldRange);
+            }
+        }
+
+        // Remove whitespace such that the node is treated as *:empty {}
+        // by CSS.
+        function removeWhitespace(targetNode)
+        {
+            if (targetNode.innerText == ' ' || targetNode.innerText ==
+                '\n')
+            {
+                var oldRange = getSelection().getRangeAt(0);
+                targetNode.innerText = "";
+
+                // refocus the caret 
+                var selectionObject = getSelection();
+                selectionObject.removeAllRanges();
+                selectionObject.addRange(oldRange);
+            }
+        }
+
+        function saveDescription()
+        {
+            var currentDescription = document.getElementById(
+                "factDescription").innerText;
+            var factNodes = document.getElementsByClassName("fact");
+            for (var node = 0; node < factNodes.length; ++node)
+            {
+                if (factNodes[node].getAttribute("selected") == "true")
+                {
+                    factNodes[node].setAttribute("description",
+                        currentDescription);
+                }
+            }
+        }
+
+        function updateSymbolMap(factConstructor)
+        {
+            Python.getSymbolList(factConstructor);
+            var symbolList = Python.register;
+            symbolList = symbolList.sort(function (leftArg, rightArg)
+            {
+                return parseInt(leftArg) - parseInt(rightArg);
+            });
+            Python.register = undefined;
+
+            document.getElementById("symbolMap").innerHTML = "";
+            var symbolNodes = document.getElementsByClassName("symbol");
+            for (var symbol = 0; symbol < symbolList.length; ++symbol)
+            {
+                // check to see if the symbol has already been printed
+                // in the dictionary
+                var hasWritten = false;
+                for (var symbolNode = 0; symbolNode <
+                    symbolNodes.length; ++symbolNode)
+                {
+                    var symbolNumberString = symbolNodes[
+                        symbolNode].children[0].innerText;
+                    if (symbolNumberString == symbolList[
+                        symbol].toString())
+                    {
+                        hasWritten = true;
+                        var parent = document.createElement("div");
+                        parent.className = "involvedSymbol";
+
+                        var numberNode = document.createElement("div");
+                        numberNode.className = "involvedSymbolNumber";
+                        numberNode.innerText = "[" + symbolNumberString
+                            + "]";
+                        parent.appendChild(numberNode);
+
+                        var definitionNode = document.createElement(
+                            "div");
+                        definitionNode.className =
+                            "involvedSymbolDefinition placeholder";
+                        definitionNode.setAttribute("placeholder",
+                            "undefined")
+                        definitionNode.innerText = symbolNodes[
+                            symbolNode].children[1].innerText;
+                        parent.appendChild(definitionNode);
+
+                        document.getElementById(
+                            "symbolMap").appendChild(parent);
+                    }
+                }
+
+                // if the symbol hasn't been printed, print it
+                if (!hasWritten)
+                {
+                    var parent = document.createElement("div");
+                    parent.className = "involvedSymbol";
+
+                    var numberNode = document.createElement("div");
+                    numberNode.className = "involvedSymbolNumber";
+                    numberNode.innerText = '[' + symbolList[symbol] +
+                        ']';
+                    parent.appendChild(numberNode);
+
+                    var definitionNode = document.createElement("div");
+                    definitionNode.className =
+                        "involvedSymbolDefinition placeholder";
+                    definitionNode.setAttribute("placeholder",
+                        "undefined");
+                    parent.appendChild(definitionNode);
+
+                    document.getElementById("symbolMap").appendChild(
+                        parent);
+                }
+            }
+        }
+
+        var PLE = { facts: {}, symbols: {}, loader: {} };
+        PLE.facts.add = function ()
+        {
+            var factNode = document.createElement("div");
+            factNode.className = "fact placeholder";
+            factNode.setAttribute("selected", "false");
+            factNode.setAttribute("valid", "false");
+            factNode.setAttribute("placeholder", "Enter a fact ...");
+            factNode.setAttribute("description", "");
+            document.getElementById("factList").appendChild(factNode);
+            PLE.facts.toggleSelection(factNode);
+            factNode.addEventListener("blur", function (event)
+            {
+                checkValidity(event.target);
+                PLE.symbols.update();
+            });
+        };
+        PLE.facts.clear = function ()
+        {
+            if (confirm("Clear all facts?"))
+            {
+                var factNodes = document.getElementsByClassName("fact");
+                if (factNodes.length > 0)
+                {
+                    document.getElementById("factList").innerHTML = "";
+                    document.getElementById("symbolMap").innerHTML = "";
+                    document.getElementById("factDescription").innerText
+                        = "";
+                    document.getElementById("factDescription").
+                        setAttribute("editable", "false");
+                    document.getElementById("factDescription").
+                        setAttribute("placeholder", "");
+                    PLE.symbols.update();
+                }
+            }
+        };
+        PLE.facts.remove = function ()
+        {
+            var factNodes = document.getElementsByClassName("fact");
+            for (var fact = 0; fact < factNodes.length; ++fact)
+            {
+                if (factNodes[fact].getAttribute("selected") == "true")
+                {
+                    factNodes[fact].parentNode.removeChild(factNodes[
+                        fact]);
+                    document.getElementById("symbolMap").innerHTML = "";
+                    document.getElementById(
+                        "factDescription").innerText = "";
+                    document.getElementById(
+                        "factDescription").setAttribute("editable",
+                        "false");
+                    document.getElementById(
+                        "factDescription").setAttribute("placeholder",
+                        "");
+                }
+            }
+        };
+        PLE.facts.toggleSelection = function (targetNode)
+        {
+            checkValidity(targetNode);
+            if (targetNode.getAttribute("selected") == "false")
+            {
+                document.getElementById("factDescription").setAttribute(
+                    "editable", "true");
+                document.getElementById("factDescription").setAttribute(
+                    "placeholder",
+                    "Enter a description of this fact ... ");
+                var oldSelectedNode = undefined;
+                var newSelectedNode = undefined;
+
+                // update fact highlighting
+                var factList = document.getElementsByClassName("fact");
+                for (var fact = 0; fact < factList.length; ++fact)
+                {
+                    if (factList[fact].getAttribute("selected") ==
+                        "true")
+                    {
+                        oldSelectedNode = factList[fact];
+                        factList[fact].setAttribute("selected",
+                            "false");
+                    }
+                }
+                newSelectedNode = targetNode;
+                targetNode.setAttribute("selected", "true");
+
+                // update description
+                if (oldSelectedNode != undefined)
+                {
+                    var currentDescription = document.getElementById(
+                        "factDescription").innerText;
+                    oldSelectedNode.setAttribute("description",
+                        currentDescription);
+                }
+                var newDescription = "";
+                if (newSelectedNode != undefined)
+                {
+                    newDescription = newSelectedNode.getAttribute(
+                        "description");
+                }
+                document.getElementById("factDescription").innerText =
+                    newDescription;
+            }
+
+            // unhighlight current constituent
+            var constituents = document.getElementsByClassName(
+                "constituent");
+            for (var constituent = 0; constituent < constituents.length;
+                ++constituent)
+            {
+                if (constituents[constituent].getAttribute("selected")
+                    == "true")
+                {
+                    constituents[constituent].setAttribute("selected",
+                        "false");
+                }   
+            }
+            PLE.symbols.update();
+        };
+        PLE.symbols.add = function ()
+        {
+            var symbolNode = document.createElement("div");
+            symbolNode.className = "symbol";
+            symbolNode.setAttribute("selected", "false");
+            symbolNode.setAttribute("eliminated", "false");
+
+            var symbolNumberNode = document.createElement("div");
+            symbolNumberNode.className =
+                "symbolNumber editable symbolChild";
+            symbolNumberNode.setAttribute("editable", "true");
+            symbolNumberNode.innerText = "";
+            symbolNode.appendChild(symbolNumberNode);
+
+            var symbolNameNode = document.createElement("div");
+            symbolNameNode.className =
+                "symbolName symbolChild placeholder";
+            symbolNameNode.setAttribute("placeholder",
+                "Describe symbol here ...");
+            symbolNode.appendChild(symbolNameNode);
+            document.getElementById("symbolList").appendChild(
+                symbolNode);
+            PLE.symbols.toggleSelection(symbolNode);
+
+            symbolNode.children[0].addEventListener("blur",
+                PLE.symbols.update);
+            symbolNode.children[1].addEventListener("blur",
+                PLE.symbols.update);
+        };
+        PLE.symbols.clear = function ()
+        {
+            if (confirm("Clear all symbols?"))
+            {
+                var symbolNodes = document.getElementsByClassName(
+                    "symbol");
+                if (symbolNodes.length > 0)
+                {
+                    document.getElementById("symbolList").innerHTML =
+                        "";
+                    PLE.symbols.update();
+                }
+            }
+        };
+        PLE.symbols.remove = function ()
+        {
+            var symbolNodes = document.getElementsByClassName("symbol");
+            if (symbolNodes.length > 0)
+            {
+                for (var symbol = 0; symbol < symbolNodes.length;
+                    ++symbol)
+                {
+                    if (symbolNodes[symbol].getAttribute("selected") ==
+                        "true")
+                    {
+                        symbolNodes[symbol].parentNode.removeChild(
+                            symbolNodes[symbol]);
+                    }
+                }
+            }
+            PLE.symbols.update();
+        };
+
+        // Toggles whether or not the current symbol is quantum, and
+        // should not appear in the final result therefore.
+        PLE.symbols.toggleQuantum = function ()
+        {
+            var symbolNodes = document.getElementsByClassName("symbol");
+            if (symbolNodes.length > 0)
+            {
+                for (var symbol = 0; symbol < symbolNodes.length;
+                    ++symbol)
+                {
+                    if (symbolNodes[symbol].getAttribute("selected") ==
+                        "true")
+                    {
+                        var oldAttribute = symbolNodes[
+                            symbol].getAttribute("eliminated");
+                        var newAttribute = "truefalse";
+                        newAttribute = newAttribute.replace(
+                            oldAttribute, "");
+                        symbolNodes[symbol].setAttribute("eliminated", 
+                            newAttribute);
+                    }
+                }
+            }
+        }
+
+        // Highlight targetNode, and deselect the currently selected
+        // symbol.
+        PLE.symbols.toggleSelection = function (targetNode)
+        {
+            while (targetNode.classList.contains("symbolChild"))
+            {
+                targetNode = targetNode.parentNode;
+            }
+            if (targetNode.getAttribute("selected") == "false")
+            {
+                var symbolList = document.getElementsByClassName(
+                    "symbol");
+                for (var symbol = 0; symbol < symbolList.length;
+                    ++symbol)
+                {
+                    if (symbolList[symbol].getAttribute("selected") ==
+                        "true")
+                    {
+                        symbolList[symbol].setAttribute("selected",
+                            "false");
+                    }
+                }
+                targetNode.setAttribute("selected", "true");
+            }
+            PLE.symbols.update();
+        };
+
+        // Display a list of involved symbols in the currently selected
+        // fact or constituent.
+        PLE.symbols.update = function ()
+        {
+            var currentSelectedFact = undefined;
+            var factConstructor = undefined;
+
+            // look for a selected fact
+            var factList = document.getElementsByClassName("fact");
+            for (var fact = 0; fact < factList.length; ++fact)
+            {
+                if (factList[fact].getAttribute("selected") == "true")
+                {
+                    currentSelectedFact = factList[fact];
+                    factConstructor = currentSelectedFact.innerText;
+                }
+            }
+
+            // look instead for a selected constituent if no fact is
+            // found
+            if (currentSelectedFact == undefined) 
+            {
+                var constituentNodes = document.getElementsByClassName(
+                    "constituent");
+                for (var constituent = 0; constituent <
+                    constituentNodes.length; ++constituent)
+                {
+                    if (constituentNodes[constituent].getAttribute(
+                        "selected") == "true")
+                    {
+                        currentSelectedFact = constituentNodes[
+                            constituent];
+                        factConstructor = "0 = " +
+                            currentSelectedFact.innerText;
+                        factConstructor = factConstructor.replace("0/0",
+                            "");
+                        factConstructor = factConstructor.replace('+',
+                            "");
+                    }
+                }
+            }
+            
+            // update according to currentSelectedFact (or constituent)
+            if (currentSelectedFact == undefined)
+            {
+                document.getElementById("symbolMap").innerHTML = "";
+            }
+            else
+            {
+                if (currentSelectedFact.getAttribute("valid") ==
+                    "false")
+                {
+                    updateSymbolMap("");
+                }
+                else
+                {
+                    // the fact is at least pseudo-valid, and can have
+                    // its symbol map checked.
+                    updateSymbolMap(factConstructor);
+                }
+            }
+        };
+        PLE.loader.load = function (fileAddress)
+        {
+            Python.load(fileAddress);
+            var wasSuccessful = (Python.register[0] == '1');
+            var saveState = Python.register.slice(1);
+            Python.register = undefined;
+
+            if (wasSuccessful)
+            {
+                try 
+                {
+                    var storedData = JSON.parse(saveState);
+                    var relations = atob(storedData.relations);
+                    document.getElementById("factList").innerHTML =
+                        relations;
+                    var symbols = atob(storedData.symbols);
+                    document.getElementById("symbolList").innerHTML =
+                        symbols;
+                    alert("File opened successfully.");
+                }
+                catch (error)
+                {
+                    alert("The file is malformed.");
+                }
+            }
+            else
+            {
+                alert("Could not find file.");
+            }
+        };
+        PLE.loader.save = function (fileAddress)
+        {
+            saveDescription();
+            deselectSelectedNodes();
+
+            var relations = btoa(document.getElementById(
+                "factList").innerHTML);
+            var symbols = btoa(document.getElementById(
+                "symbolList").innerHTML);
+            var storedData = JSON.stringify({relations: relations, 
+                symbols: symbols
+            });
+            Python.save(storedData, fileAddress);
+            var wasSuccessful = (Python.register[0] == '1');
+            Python.register = undefined;
+            
+            if (wasSuccessful)
+            {
+                alert("File saved successfully.");
+            }
+            else
+            {
+                alert("The file path is invalid.");
+            }
+        };
+    </script>
+    <script name="back-end definitions" type="text/javascript">
+        var Python = { cache: [], cacheInf: [], register: undefined };
+        // cache to store massive results of processing, register for 
+        // less particular temp results, and cacheInf for a cache of 
+        // "partial" (implied) results
+
+        Python.getSymbolList = function (factConstructor)
+        {
+            Bridge.getSymbolList(factConstructor);
+        };
+        Python.isValid = function (factConstructor)
+        {
+            Bridge.isValid(factConstructor)
+        }
+        Python.launchRequest = function ()
+        {
+            // append each fact
+            var appendResults = [];
+            var physicalFactList = document.getElementsByClassName(
+                "fact");
+            for (var fact = 0; fact < physicalFactList.length; ++fact)
+            {
+                var currentConstructor = physicalFactList[
+                    fact].innerText;
+                Bridge.addFact(currentConstructor);
+                appendResults[appendResults.length] = this.cache;
+            }
+            var requestNode = document.getElementById(
+                "quaesitumInsertionPoint");
+            while (requestNode.innerText.search("\n") != -1)
+            {
+                requestNode.innerText = requestNode.innerText.replace(
+                   "\n", "");
+            }
+            var request = requestNode.innerText;
+            while (request.search("\n") != -1)
+            {
+                request = request.replace("\n", "");
+            }
+
+            // specify which symbols are in quantum states, and should
+            // not be found in the final result
+            eliminatedSymbols = getElimiatedSymbols();
+            for (var symbol = 0; symbol < eliminatedSymbols.length;
+                ++symbol)
+            {
+                Bridge.eliminateSymbol(eliminatedSymbols[symbol]);
+            }
+            Bridge.request(request);
+        };
+        Python.load = function (fileAddress)
+        {
+            Bridge.load(fileAddress);
+        }
+
+        // This function is volatile, and breaks with subtle 
+        // modifications of Python error messages.
+        Python.mapError = function (errorMessage)
+        {
+            if (errorMessage ==
+                "Failed to append fact: fact is malformed.")
+            {
+                // supress -- errors of this nature are made obvious to 
+                // the user through colouring
+            }
+            else if (errorMessage ==
+                "Failed to set request: request is malformed.")
+            {
+                alert("The request is malformed.");
+            }
+            else if (errorMessage ==
+                "Failed to declare environment: request is not defined."
+                )
+            {
+                // suppress -- this is handled by the former case, this
+                // error will not be found without a pairing with the
+                // prior message
+            }
+            else
+            {
+                alert("error " + errorMessage);
+            }
+        };
+        Python.onProcessorFinish = function ()
+        {
+            document.getElementById("outBoxInf").innerHTML = "";
+
+            // write containers to #outBox
+            document.getElementById("outBox").innerHTML = "";
+            var titleNode = document.createElement("div");
+            titleNode.className = "heading contentComponent upper";
+            var requestText = document.getElementById(
+                "quaesitumInsertionPoint").innerText;
+            if (requestText == "")
+            {
+                requestText = 0;
+            }
+            titleNode.innerText = requestText + " = ";
+            document.getElementById("outBox").appendChild(titleNode);
+
+            var quantumNode = document.createElement("div");
+            quantumNode.id = "quantumConstituentContainer";
+            quantumNode.setAttribute("hiddenDiv", "true");
+            document.getElementById("outBox").appendChild(quantumNode);
+
+            var unityNode = document.createElement("div");
+            unityNode.id = "determinateConstituentContainer";
+            unityNode.setAttribute("hiddenDiv", "true");
+            document.getElementById("outBox").appendChild(unityNode);
+
+            document.getElementById("outBox").setAttribute("hiddenDiv",
+                "false");
+
+            // print the primary constituents, emptying the cache
+            this.printConstituents();
+            this.cache = [];
+
+            // write container to #outBoxInf
+            var titleNode = document.createElement("div");
+            titleNode.className = "heading contentComponent upper";
+            titleNode.innerText = "0 = ";
+            document.getElementById("outBoxInf").appendChild(titleNode);
+
+            var infiniteNode = document.createElement("div");
+            infiniteNode.id = "infiniteConstituentContainer";
+            document.getElementById("outBoxInf").appendChild(
+                infiniteNode);
+            if (this.cacheInf.length == 0)
+            {
+                document.getElementById("outBoxInf").setAttribute(
+                    "hiddenDiv", "true");
+            }
+            else
+            {
+                document.getElementById("outBoxInf").setAttribute(
+                    "hiddenDiv", "false");
+            }
+
+            // print the secondary constituents and empty the cache
+            this.printInfiniteConstituents();
+            this.cacheInf = [];
+            
+            // attach listeners to each of the constituents
+            var nodesToListen = [document.getElementById(
+                "quantumConstituentContainer"), document.getElementById(
+                "determinateConstituentContainer"),
+                document.getElementById("infiniteConstituentContainer")
+                ];
+            for (var node = 0; node < nodesToListen.length; ++node)
+            {
+                var nodeToListen = nodesToListen[node];
+                if (nodeToListen != undefined)
+                {
+                    nodeToListen.addEventListener("mousedown", function
+                        (event)
+                    {
+                        if (event.target.classList.contains(
+                            "constituent"))
+                        {
+                            saveDescription();
+                            deselectSelectedNodes();
+                            event.target.setAttribute("selected",
+                                "true");
+                            PLE.symbols.update();
+                        }
+                    });
+                }
+            }
+        };
+
+        // Print constituents that are either determinate or quantum, 
+        // having the respective coefficients of 1 or 0/0.
+        Python.printConstituents = function ()
+        {
+            // iterate through the constituents, printing each
+            var constituents = this.cache;
+            var hasFoundDeterminate = false;
+            for (var constituent = 0; constituent < constituents.length;
+                ++constituent)
+            {
+                var currentConstituent = constituents[constituent];
+                var isQuantum = undefined;
+                var adornedConstituent = undefined;
+                if (currentConstituent[0] == '1')
+                {
+                    isQuantum = false;
+                    hasFoundDeterminate = true;
+                    if (document.getElementById(
+                        "determinateConstituentContainer").getAttribute(
+                        "hiddenDiv") == "true");
+                    {
+                        document.getElementById(
+                            "determinateConstituentContainer"
+                            ).setAttribute("hiddenDiv", "false");
+                    }
+                    adornedConstituent = currentConstituent.slice(1);
+                }
+                else // begins with 0/0
+                {
+                    isQuantum = true;
+                    if (document.getElementById(
+                        "quantumConstituentContainer").getAttribute(
+                        "hiddenDiv") == "true");
+                    {
+                        document.getElementById(
+                            "quantumConstituentContainer").setAttribute(
+                            "hiddenDiv", "false");
+                    }
+                    adornedConstituent = currentConstituent;
+                }
+                adornedConstituent += " + ";
+                if (adornedConstituent.length == 0)
+                {
+                    adornedConstituent = "1";
+                }
+                var constituentNode = document.createElement("div");
+                constituentNode.setAttribute("valid", "true");
+                constituentNode.className = isQuantum ?
+                    "quantumConstituent constituent" :
+                    "determinateConstituent constituent";
+                constituentNode.setAttribute("selected", "false");
+                constituentNode.innerText = adornedConstituent;
+
+                var destinationNode = isQuantum ?
+                    document.getElementById(
+                    "quantumConstituentContainer") :
+                    document.getElementById(
+                    "determinateConstituentContainer");
+                destinationNode.appendChild(constituentNode);
+            }
+
+            // apply some conditional styles
+            if (hasFoundDeterminate)
+            {
+                document.getElementById(
+                    "determinateConstituentContainer").style.padding =
+                    "0";
+            }
+            else
+            {
+                document.getElementById(
+                    "quantumConstituentContainer").style.padding = "0";
+                document.getElementById(
+                    "quantumConstituentContainer").style.border =
+                    "none";
+            }
+            if (this.cache.length == 0)
+            {
+                document.getElementById(
+                    "determinateConstituentContainer").setAttribute(
+                    "hiddenDiv", "false");
+
+                var constituentNode = document.createElement("div");
+                constituentNode.className =
+                    "determinateConstituent constituent";
+                constituentNode.setAttribute("selected", "false");
+                document.getElementById(
+                    "determinateConstituentContainer").style.paddingTop
+                    = "0";
+                constituentNode.innerText = "0";
+                document.getElementById(
+                    "determinateConstituentContainer").appendChild(
+                    constituentNode);
+            }
+
+            // remove the final addition sign '+'
+            var constituentNodes = document.getElementsByClassName("constituent");
+            if (constituentNodes.length > 0)
+            {
+                var finalNode = constituentNodes[constituentNodes.length
+                    - 1];
+                finalNode.innerText = finalNode.innerText.split('+')[0];
+            }
+        }
+
+        // Print constituents which have a coefficient of 1/0, termed
+        // "implied relations".
+        Python.printInfiniteConstituents = function ()
+        {
+            var constituents = this.cacheInf;
+            for (var constituent = 0; constituent < constituents.length;
+                ++constituent)
+            {
+                var currentConstituent = constituents[constituent];
+                var adornedConstituent = currentConstituent.slice(3);
+                // remove "1/0"
+
+                if (constituent != constituents.length - 1)
+                {
+                    adornedConstituent += " + ";
+                }
+                else if (adornedConstituent.length == 0)
+                {
+                    adornedConstituent = "1";
+                }
+
+                var constituentNode = document.createElement("div");
+                constituentNode.setAttribute("valid", "true");
+                constituentNode.className =
+                    "infiniteConstituent constituent";
+                constituentNode.setAttribute("selected", "false");
+                constituentNode.innerText = adornedConstituent;
+
+                document.getElementById(
+                    "infiniteConstituentContainer").appendChild(
+                    constituentNode);
+            }
+        }
+        Python.save = function (storedData, fileAddress)
+        {
+            Bridge.save(storedData, fileAddress);
+        }
+    </script>
+    <script name="listeners" type="text/javascript">
+        window.addEventListener("load", function ()
+        {
+            // standard listeners for left panel
+            document.getElementById("factList").addEventListener(
+                "mousedown", function (event)
+            {
+                if (event.target.classList.contains("fact"))
+                {
+                    PLE.facts.toggleSelection(event.target);
+                }
+            });
+            document.getElementById("addFact").addEventListener("click",
+                PLE.facts.add);
+            document.getElementById("clearFacts").addEventListener(
+                "click", PLE.facts.clear);
+            document.getElementById("removeFact").addEventListener(
+                "click", PLE.facts.remove);
+
+            // standard listeners for right panel
+            document.getElementById("symbolList").addEventListener(
+                "mousedown", function (event)
+            {
+                if (event.target.classList.contains("symbol") || 
+                    event.target.classList.contains("symbolChild"))
+                {
+                    PLE.symbols.toggleSelection(event.target);
+                }
+            });
+            document.getElementById("addSymbol").addEventListener(
+                "click", PLE.symbols.add);
+            document.getElementById("clearSymbols").addEventListener(
+                "click", PLE.symbols.clear);
+            document.getElementById("removeSymbol").addEventListener(
+                "click", PLE.symbols.remove);
+
+            // non-standard listener for right panel
+            document.getElementById("toggleQuantum").addEventListener(
+                "click", PLE.symbols.toggleQuantum);
+
+            // listener for all instigators of value change (live 
+            // validation)
+            var EVENTS_CREATING_CHANGE = ["change", "cut", "drop",
+                "keydown", "paste"];
+            for (var eventNum = 0; eventNum <
+                EVENTS_CREATING_CHANGE.length; ++eventNum)
+            {
+                var currentEvent = EVENTS_CREATING_CHANGE[eventNum];
+                document.getElementById("symbolList").addEventListener(
+                    currentEvent, function (event)
+                {
+                    setTimeout(function ()
+                    {
+                        formatSymbolNumber(event);
+                    }, 0);
+                });
+                document.getElementById("factList").addEventListener(
+                    currentEvent, function (event)
+                {
+                    if (event.target.classList.contains("fact"))
+                    {
+                        setTimeout(function ()
+                        {
+                            removeWhitespace(event.target);
+                        }, 0);
+                    }
+                });
+                document.getElementById(
+                    "factDescription").addEventListener(currentEvent,
+                    function (event)
+                {
+                    setTimeout(function ()
+                    {
+                        removeWhitespace(event.target);
+                    }, 0);
+                });
+                document.getElementById("symbolList").addEventListener(
+                    currentEvent, function (event)
+                {
+                    if (event.target.classList.contains("symbolName"))
+                    {
+                        setTimeout(function ()
+                        {
+                            removeWhitespace(event.target);
+                        }, 0);
+                    }
+                }); 
+                document.getElementById(
+                    "quaesitumInsertionPoint").addEventListener(
+                    currentEvent, function (event)
+                {
+                    setTimeout(function ()
+                    {
+                        removeWhitespace(event.target);
+                    }, 0);
+                });
+            }
+            
+            // drop events must specifically be ignored due to their
+            // shoddy standards and implementation
+            window.addEventListener("dragover", function (event)
+            {
+                event.preventDefault();
+            });
+
+            // ignore any paste events into symbolNumber
+            document.getElementById("symbolList").addEventListener(
+                "paste", function (event)
+            {
+                if (event.target.classList != undefined)
+                {
+                    if (event.target.classList.contains("symbolNumber"))
+                    {
+                        event.preventDefault();
+                    }
+                }
+            });
+            
+            // listener to prevent default context menu
+            document.getElementsByTagName("body")[0].addEventListener(
+                "contextmenu", function (event)
+            {
+                event.preventDefault();
+            });
+
+            // listener for form submission
+            document.getElementById("request").addEventListener("click",
+                Python.launchRequest);
+
+            // listener for shortcut keys
+            window.addEventListener("keypress", function (event)
+            {
+                if (event.ctrlKey)
+                {
+                    if (event.keyCode == 19) // 's'
+                    {
+                        event.preventDefault();
+                        var fileAddress = prompt(
+                            "Enter address to save to.");
+                        if (fileAddress != null)
+                        {
+                            PLE.loader.save(fileAddress);
+                        }
+                    }
+                    else if (event.keyCode == 15) // 'o'
+                    {
+                        event.preventDefault();
+                        var fileAddress = prompt(
+                            "Enter address to load from.");
+                        if (fileAddress != null)
+                        {
+                            PLE.loader.load(fileAddress);
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="tortilla">
+        <div id="panelHolder">
+            <div class="panelOuter">
+                <div class="panelInner left">
+                    <div class="content">
+                        <div class="heading contentComponent upper">
+                            Fact List
+                        </div>
+                        <div class="contentComponent middle">
+                            <div id="factList" class="list"></div>
+                        </div>
+                        <div class="contentComponent lower">
+                            <div class="buttonHolder">
+                                <div id="clearFacts" 
+                                    class="button left">
+                                    Clear All
+                                </div>
+                                <div id="removeFact"
+                                    class="button middle">
+                                    Remove
+                                </div>
+                                <div id="addFact" class="button right">
+                                    Add
+                                </div>
+                            </div>
+                            <!-- empty node such that .content's height
+                                will be extended according to the 
+                                otherwise floated .buttons -->
+                            <div style="color: rgba(0, 0, 0, 0.0);">
+                                |
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panelInner left offset">
+                    <div class="content">
+                        <div id="factDescription" 
+                             class="description editable placeholder">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panelOuter">
+                <div class="panelInner right">
+                    <div class="content">
+                        <div class="heading contentComponent upper">
+                            Symbol Dictionary
+                        </div>
+                        <div class="contentComponent middle">
+                            <div id="symbolList" class="list"></div>
+                        </div>
+                        <div class="contentComponent lower">
+                            <div class="buttonHolder">
+                                <div id="toggleQuantum"
+                                     class="button left">
+                                    Toggle Filter
+                                </div>
+                                <div id="clearSymbols" 
+                                     class="button middle">
+                                    Clear All
+                                </div>
+                                <div id="removeSymbol" 
+                                     class="button middle">
+                                    Remove
+                                </div>
+                                <div id="addSymbol" 
+                                     class="button right">
+                                    Add
+                                </div>
+                            </div>
+                            <!-- empty node such that .content's height
+                                will be extended according to the 
+                                otherwise floated .buttons -->
+                            <div style="color: rgba(0, 0, 0, 0.0);">
+                                |
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panelInner right offset">
+                    <div class="content">
+                        <div id="symbolMap" class="description"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footHolder">
+            <div class="footSpan">
+                <div class="content">
+                    <div id="request" class="button">
+                        Make Request
+                    </div>
+                    <div id="quaesitumInsertionPoint" 
+                         class="editable placeholder" 
+                         placeholder="Insert quaesitum ..." 
+                         editable="true"></div>
+                </div>
+            </div>
+            <div class="footSpan">
+                <div id="outBox" class="content" hiddenDiv="true"></div>
+                <div id="outBoxInf" class="content" hiddenDiv="true"
+                     ></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
